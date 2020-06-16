@@ -1,0 +1,14 @@
+{
+  "name": "codeail",
+  "version": "1.0.0",
+  "description": "My Social Media web Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "social"
+  ],
+  "author": "YaswantSinghi",
+  "license": "ISC"
+}
