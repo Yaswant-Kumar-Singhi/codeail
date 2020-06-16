@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //connecting with mongodb using connection string
-mongoose.connect('mongodb://localhost/TODO-APP');
+mongoose.connect('mongodb://localhost/db');
 
 // checking the connection 
 var db = mongoose.connection;
