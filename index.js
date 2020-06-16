@@ -7,6 +7,9 @@ const port = 8000;
 
 app = express();
 
+// use express router
+app.use('/',require('./routes'));
+
 /*setting up routers and assets
 app.use('/',require('./routes'));
 app.use(express.static('assets'));
