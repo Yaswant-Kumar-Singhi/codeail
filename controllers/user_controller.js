@@ -1,3 +1,5 @@
+const User = require('../model/user');
+const { create } = require('../model/user');
 module.exports.profile = function(req,res){
     return res.render('user',{
         title : 'user controller working. Ejs loaded successfully '
@@ -21,7 +23,28 @@ module.exports.signin = function(req,res){
 
 //get the sign up data
 module.exports.create = function(req,res){
-    //TODO LATER
+    if(req.body.password != req.body.confirmpassword){
+        return res.redirect('back');
+    }
+
+    User.findOne({email:req.body.email},function(err,user){
+        if(err) {console.log("eror in finding the user in signup"); return; }
+
+        if(!user){
+            User.create(req.body,function(err,user){
+                if(err) {console.log("eror in creating user in signup"); return; } 
+
+                return res.redirect('/users/sign-in');
+            })
+        }
+        else{
+            return res.redirect('back');
+        }
+    })
+        
+    
+    
+    
 }
 
 module.exports.createSession = function(req,res){
