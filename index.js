@@ -3,6 +3,10 @@ const express = require('express');
 const db = require('./config/mongoose');
 const expressLayout = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
 const { urlencoded } = require('express');
 
 //setting up the port number where my application will run
@@ -20,8 +24,6 @@ app.use(cookieParser());
 app.set('layout extractStyles',true );
 app.set('layout extractScripts',true );
 
-// use express router
-app.use('/',require('./routes'));
 
 
 app.use(express.static('./assets'));
@@ -32,6 +34,25 @@ app.use(express.static('./assets'));
 //set up a view engine
 app.set('view engine','ejs');
 app.set('views','./views');
+
+app.use(session({
+    name : 'codeial',
+    //TODO change the secret in production mode
+    secret : 'blahsomething',
+    saveUninitialized : false,
+    resave : false,
+    cookie : {
+        maxAge : (1000 * 60 * 100)
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// use express router
+app.use('/',require('./routes'));
+
 
 
 //server on
