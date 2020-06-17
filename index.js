@@ -24,6 +24,7 @@ app.use(express.static('./assets'));
 
 
 
+
 //set up a view engine
 app.set('view engine','ejs');
 app.set('views','./views');
