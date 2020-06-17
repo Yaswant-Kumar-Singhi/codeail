@@ -12,8 +12,15 @@ app = express();
 //all the views are to rener is from some layout
 app.use(expressLayout);
 
+//extract style and script from sub pages
+app.set('layout extractStyles',true );
+app.set('layout extractScripts',true );
+
 // use express router
 app.use('/',require('./routes'));
+
+
+app.use(express.static('./assets'));
 
 
 
