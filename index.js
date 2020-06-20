@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
 
 const passportLocal = require('./config/passport-local-strategy');
 
@@ -48,13 +49,14 @@ app.use(session({
     cookie : {
         maxAge : (1000 * 60 * 100)
     },
-    store : new MongoStore({
+    store : new MongoStore(
+        {
         
-            mongooseConnection : db,
+            mongooseConnection : mongoose.connection,
             autoRemove : 'disabled'
-        
-    }, function(err){
-        console.log(err || 'connect-mongodb setup ok')
+
+        }, function(err){
+        console.log(err)
     })
 }));
 
