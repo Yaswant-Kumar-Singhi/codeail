@@ -8,7 +8,7 @@ console.log("routes running");
 
 router.get('/',homeController.home);
 router.use('/users',require('./users'));
-router.use('/users',require('./post'));
+router.use('/post',require('./post'));
 
 
 module.exports =  router;
