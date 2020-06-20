@@ -1,3 +1,31 @@
 <footer>
-        footer sectiom
-    </footer>
+        
+
+        <% if(locals.user) {%>
+
+            <div id="footerContent">
+                <a href="/">@Codeail</a>
+                <p> A social webSite</p>
+            </div>
+    
+            <div id="footerLink">
+                <li><a href="/">Home</a></li>
+                <li><a href="/users/profile">Profile</a></li>
+            </div>
+
+        <%} else {%>
+            
+            <div id="footerContent">
+                <a href="/">@Codeail</a>
+                <p> A social webSite</p>
+            </div>
+    
+            <div id="footerLink">
+                <li><a href="/">Home</a></li>
+                
+            </div>
+            
+            
+        <%}  %>
+
+</footer>

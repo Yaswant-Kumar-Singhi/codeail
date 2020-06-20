@@ -1,0 +1,27 @@
+footer {
+  display: flex;
+  background-color: #5e5b5b;
+  height: 5rem;
+  justify-content: space-evenly;
+  align-items: center; }
+
+#footerContent {
+  position: relative;
+  left: -20%; }
+  #footerContent p {
+    color: whitesmoke;
+    font-size: 1rem; }
+  #footerContent a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1rem; }
+
+#footerLink {
+  position: relative;
+  right: -20%; }
+  #footerLink a {
+    color: whitesmoke;
+    font-size: 1rem;
+    text-decoration: none; }
+  #footerLink li {
+    list-style-type: none; }
