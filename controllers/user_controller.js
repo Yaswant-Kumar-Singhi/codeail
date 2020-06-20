@@ -1,5 +1,6 @@
 const User = require('../model/user');
 const { create } = require('../model/user');
+
 module.exports.profile = function(req,res){
     return res.render('user',{
         title : 'user controller working. Ejs loaded successfully '
@@ -8,14 +9,18 @@ module.exports.profile = function(req,res){
 
 //render the sign up page
 module.exports.signup = function(req,res){
-    return res.render('user_sign_up',{
-        title : "Codeail | Sign Up"
-    })
+    if(req.isAuthenticated()){
+       return res.redirect('/users/profile');
+    }
 }
 
 
 //render the sign in page
 module.exports.signin = function(req,res){
+    if(req.isAuthenticated()){
+      return res.redirect('/users/profile');
+    }
+
     return res.render('user_sign_in',{
         title : "Codeail | Sign In"
     })
