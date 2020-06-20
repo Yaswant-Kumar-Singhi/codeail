@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
+const saasMiddleware = require('node-sass-middleware');
 
 const passportLocal = require('./config/passport-local-strategy');
 
@@ -17,6 +18,14 @@ const port = 8000;
 
 //making express function
 app = express();
+
+app.use(saasMiddleware({
+    src: './assets/scss',
+    dest : './assets/css/',
+    debug : true,
+    outputStyle: 'extended',
+    prefix : '/css'
+}))
 
 //all the views are to rener is from some layout
 app.use(expressLayout);
