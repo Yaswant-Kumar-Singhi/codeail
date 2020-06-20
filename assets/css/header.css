@@ -1,0 +1,27 @@
+header {
+  height: 2rem;
+  background-color: blue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+#homeLogo {
+  color: whitesmoke;
+  font-size: large;
+  position: relative;
+  left: -20%; }
+  #homeLogo a {
+    text-decoration: none;
+    color: whitesmoke; }
+
+#actionIcons {
+  position: relative;
+  right: -20%;
+  background-color: transparent; }
+  #actionIcons button {
+    background-color: cadetblue;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  #actionIcons a {
+    text-decoration: none;
+    color: whitesmoke; }

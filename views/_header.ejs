@@ -1,5 +1,21 @@
-<header>
-        Header Section
+ <!--<header>
+        <div id="homeLogo">
+            <a href='/'>
+                Codeial
+            </a>
+        </div>
+        <div id="actionIcons">
+            <button>
+                <a href='/users/sign-in'>
+                    Sign In
+                </a>
+            </button>
+            <button>
+                <a href='/users/sign-out'>
+                    Sign Out
+                </a>
+            </button>
+        </div>
 </header>
 
 <ul>
@@ -10,9 +26,7 @@
                 <%= user.name%>
             </a>
         </li>
-        <li>
-            <a href="/users/sign-out">Sign Out</a>
-        </li>
+        
                 
     <% }else{ %> 
         <li>
@@ -26,3 +40,54 @@
 
 
 </ul>
+-->
+
+<header>
+
+    <% if(locals.user) { %>
+
+        <div id="homeLogo">
+            <a href='/'>
+                Codeial
+            </a>
+        </div>
+
+        <div id="actionIcons">
+            
+                <a href='/users/profile'>
+                    <%= user.name%>
+                </a>
+            
+            
+                <a href='/users/sign-out'>
+                    Sign Out
+                </a>
+            
+        </div>
+
+        <% }else{ %> 
+
+            <div id="homeLogo">
+                <a href='/'>
+                    Codeial
+                </a>
+            </div>
+            
+            <div id="actionIcons">
+                
+                    <a href='/users/sign-in'>
+                        Sign In
+                    </a>
+                
+                    <a href='/users/sign-out'>
+                        Sign Out
+                    </a>
+                
+            </div>
+
+
+        <%} %>
+        
+        
+
+</header>
