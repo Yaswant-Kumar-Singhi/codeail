@@ -1,4 +1,4 @@
-const User = require('../model/user')
+
 const Post = require('../model/post')
 
 
@@ -11,7 +11,7 @@ module.exports.create = function(req,res){
         if(err){
         console.log('err in creating a post'); return ;
         }
-        console.log(Post)
+        //console.log(Post)
         return res.redirect('back');
        
     })

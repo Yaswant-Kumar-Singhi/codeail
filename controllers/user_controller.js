@@ -1,5 +1,5 @@
 const User = require('../model/user');
-const { create } = require('../model/user');
+//const { create } = require('../model/user');
 
 module.exports.profile = function(req,res){
     return res.render('user',{
@@ -11,6 +11,11 @@ module.exports.profile = function(req,res){
 module.exports.signup = function(req,res){
     if(req.isAuthenticated()){
        return res.redirect('/users/profile');
+    }
+    else{
+        return res.render('user_sign_up',{
+            title:"Codeail | Sign Up"
+        })
     }
 }
 
@@ -43,7 +48,7 @@ module.exports.create = function(req,res){
             })
         }
         else{
-            return res.redirect('back');
+            return res.redirect('/users/sign-up');
         }
     })
         
